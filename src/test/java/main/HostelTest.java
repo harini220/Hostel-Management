@@ -29,44 +29,45 @@ public class HostelTest {
 	 
 	    return generatedString;
 	}
-	Hostel h;
 	@SuppressWarnings("static-access")
 	@Test
-	public void hostelAllotTest() throws IOException {
-		BufferedWriter out = null;
-		String test="";
-		 try {
-             out = new BufferedWriter(new FileWriter("hostel.txt", true));
-             test = givenCorrect();    
-             out.write(test+" "+1);
-                 out.newLine();
-         } catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-             if(out!=null){
-                 out.close();
-             }
-         }	
-		 h.allotHostel();
-		 boolean chk= true;
+	public void studentNameTest() throws IOException {
+		boolean chk = true;
+		h	= new Hostel();
+		
+		BufferedWriter out = new BufferedWriter(new FileWriter("hostel.txt",true));
+//		assertEquals(false,h.verifyName("test rNo"));
+		
 			try{
-	       		BufferedReader br = new BufferedReader(new FileReader("allotedhostel.txt"));
-	                   
-	            String line = null;
-	           while ((line = br.readLine()) != null) {
-	               String[] splited = line.split("\\s+");
-	                   if(splited[0].equals(test)){
-	                	  chk = false;
-	                	   assertEquals(test,splited[0]);
-	                	   break;
-	                   }
-	               }
+				out.write("tekjhgfdsst rNo");
+				out.newLine();
 	           }catch(Exception e){
+	               //print
 	               System.out.println(e);
+	               
+	           }finally{
+	               out.close();
 	           }
-			if(chk) {
-				assertEquals("test1","xw");
-			}
+		
+		
+		assertEquals(true,h.verifyName("tekjhgfdsst"));
+		
+		
+		
+		
+//		fail("Not yet implemented");
+	}
+	@SuppressWarnings("static-access")
+	@Test
+	public void studentDuplicacyTest() throws IOException{
+//		boolean chk = true;
+		assertEquals(false,h.verifyName("abcdef"));
 	}
 }
+
+	
+			
+			
+
+
+	
