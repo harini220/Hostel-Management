@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.io.*;
 import java.util.*;
 
-import org.junit.Test;
-
 public class Hostel{
 	   public static void writedata()throws IOException {
 		   BufferedWriter out = null;
@@ -39,15 +37,15 @@ public class Hostel{
 	            
 	               //write your code here !!!
 	               while ((line = br.readLine()) != null) 
-	               {   
+	               {
 		               String[] splited = line.split("\\s+");
 		               String checkName = name;
 		               //write your code here !!!
 //		               compare check name with name and return true if present and false if not
-	              if(splited[0].equals(name))
-	              {
-	            	  return true;
-	              }
+		               if(splited[0].equals(name))
+		               {
+		            	   return true;
+		               }
 	               }
 	               
 	               
@@ -61,11 +59,11 @@ public class Hostel{
     	   try
     	   {
     		   writedata();
-    	   }catch(OException e){
-    		   {
-    			   System.out.println(e);
-    		   }
+    	   }catch(IOException e)
+    	   {
+    		   System.out.println(e);
     	   }
+    	   
     	   
        }
 
@@ -91,7 +89,7 @@ public class Hostel{
     	   boolean chk = true;
     	   
     	   //write your code here
-    	   chk = reaData(name);
+    	   chk = readData(name);
     	   
     	   return chk;
         }
@@ -104,42 +102,6 @@ public class Hostel{
             name = sc.nextLine();
             return name;
         }
-		@SuppressWarnings("static-access")
-		@Test
-		public void studentNameTest() throws IOException {
-			boolean chk = true;
-			h	= new Hostel();
-			
-			BufferedWriter out = new BufferedWriter(new FileWriter("hostel.txt",true));
-//			assertEquals(false,h.verifyName("test rNo"));
-			
-				try{
-					out.write("tekjhgfdsst rNo");
-					out.newLine();
-		           }catch(Exception e){
-		               //print
-		               System.out.println(e);
-		               
-		           }finally{
-		               out.close();
-		           }
-			
-			
-			assertEquals(true,h.verifyName("tekjhgfdsst"));
-			
-			
-			
-			
-//			fail("Not yet implemented");
-		}
-		@SuppressWarnings("static-access")
-		@Test
-		public void studentDuplicacyTest() throws IOException{
-//			boolean chk = true;
-			assertEquals(false,h.verifyName("abcdef"));
-		}
-
-
 
 
     public static void main(String args[])throws IOException {
